@@ -121,35 +121,25 @@ adb install -r app/build/outputs/apk/release/app-release.apk
 
 ### 🎨 界面预览
 
-<table>
-  <tr>
-    <td width="33%" align="center">
-      <img src="docs/screenshots/pairing.png" alt="扫码配对页面" width="100%"/>
-      <br/><b>📱 扫码配对</b>
-      <br/><sub>手机扫描二维码，一键推送配置</sub>
-    </td>
-    <td width="33%" align="center">
-      <img src="docs/screenshots/home.png" alt="主页控制界面" width="100%"/>
-      <br/><b>🎮 主页控制</b>
-      <br/><sub>遥控器操作，连接状态实时显示</sub>
-    </td>
-    <td width="33%" align="center">
-      <img src="docs/screenshots/store.png" alt="Google Play 商店" width="100%"/>
-      <br/><b>📦 应用商店</b>
-      <br/><sub>Android TV 原生 Leanback UI</sub>
-    </td>
-  </tr>
-</table>
+**核心功能展示：**
 
-> **截图说明：**
-> - 左图：TV 端显示二维码和局域网 IP，等待手机扫码配对
-> - 中图：主页显示连接按钮、代理模式、订阅信息、流量统计
-> - 右图：应用在 Google Play 商店的展示（Leanback 标准界面）
+📱 **扫码配对页面**
+- TV 端显示二维码和局域网 IP
+- 手机扫描后一键推送配置
+- 无需在电视上输入复杂信息
 
-**请将你的 3 张截图保存为：**
-- `docs/screenshots/pairing.png` - 二维码配对页面
-- `docs/screenshots/home.png` - 主页控制界面  
-- `docs/screenshots/store.png` - Google Play 商店界面
+🎮 **主页控制界面**
+- 大圆形连接按钮，遥控器操作友好
+- 实时显示连接状态、流量统计
+- 代理模式切换（规则/全局）
+- 订阅信息展示（套餐、到期时间、流量）
+
+📦 **应用商店展示**
+- Android TV 原生 Leanback UI
+- 符合 Google Play TV 应用规范
+- 完整的遥控器焦点导航
+
+> 💡 **提示**：截图即将添加，敬请期待！如需查看实际效果，请访问 [V2Plug 打包平台](http://v2borad.haima.lol) 获取完整客户端。
 
 ### 🔧 核心功能
 
