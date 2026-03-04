@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0B0E1A"
+    android:orientation="vertical"
+    android:padding="40dp"
+    android:descendantFocusability="beforeDescendants">
+
+    <!-- 顶部栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_button_flat"
+            android:paddingHorizontal="24dp"
+            android:text="← 返回"
+            android:textColor="#A0A3BD"
+            android:textSize="16sp"
+            android:focusable="true"
+            android:nextFocusDown="@+id/rvServers"
+            android:nextFocusRight="@+id/rvServers" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="24dp"
+            android:text="选择节点"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvServerCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#6B6F93"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <!-- 节点列表 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvServers"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="20dp"
+        android:clipToPadding="false"
+        android:paddingBottom="24dp"
+        android:focusable="true"
+        android:nextFocusUp="@+id/btnBack" />
+</LinearLayout>

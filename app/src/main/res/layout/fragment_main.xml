@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0B0E1A"
+    android:orientation="vertical"
+    android:padding="40dp"
+    android:descendantFocusability="beforeDescendants">
+
+    <!-- 顶部栏 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="TV VPN"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvSyncInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textColor="#5A5D7A"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnSync"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_toStartOf="@id/tvSyncInfo"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_button_flat"
+            android:paddingHorizontal="28dp"
+            android:text="⟳ 同步"
+            android:textColor="#A0A3BD"
+            android:textSize="16sp"
+            android:focusable="true"
+            android:nextFocusDown="@+id/btnConnect"
+            android:nextFocusLeft="@+id/btnConnect"
+            android:nextFocusRight="@+id/btnConnect" />
+    </RelativeLayout>
+
+    <!-- 主内容区 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <!-- 左侧：连接按钮 + 状态 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.v2rayng.mytv.ui.home.ConnectButtonView
+                android:id="@+id/btnConnect"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:focusable="true"
+                android:nextFocusUp="@+id/btnSync"
+                android:nextFocusDown="@+id/panelMode"
+                android:nextFocusRight="@+id/panelMode"
+                android:nextFocusLeft="@+id/panelNode" />
+
+            <TextView
+                android:id="@+id/tvTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="00:00:00"
+                android:textColor="#E0E0E0"
+                android:textSize="28sp"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="未连接"
+                android:textColor="#5A5D7A"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- 右侧：信息面板 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:layout_marginStart="24dp"
+            android:orientation="vertical">
+
+            <!-- 第一行：模式 + 节点 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
+
+                <!-- 模式切换 -->
+                <LinearLayout
+                    android:id="@+id/panelMode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_panel_card"
+                    android:orientation="vertical"
+                    android:padding="18dp"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:nextFocusLeft="@+id/btnConnect"
+                    android:nextFocusRight="@+id/panelNode"
+                    android:nextFocusUp="@+id/btnSync"
+                    android:nextFocusDown="@+id/btnConnect">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="代理模式"
+                        android:textColor="#6B6F93"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvModeName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="规则模式"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="按确认键切换"
+                        android:textColor="#7B61FF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- 当前节点 -->
+                <LinearLayout
+                    android:id="@+id/panelNode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_panel_card"
+                    android:orientation="vertical"
+                    android:padding="18dp"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:nextFocusLeft="@+id/panelMode"
+                    android:nextFocusRight="@+id/btnConnect"
+                    android:nextFocusUp="@+id/btnSync"
+                    android:nextFocusDown="@+id/btnConnect">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="当前节点"
+                        android:textColor="#6B6F93"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvNodeName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="未选择节点"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:singleLine="true"
+                        android:ellipsize="end" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="按确认键切换节点"
+                        android:textColor="#7B61FF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 第二行：订阅信息（不可聚焦） -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_panel_card"
+                android:orientation="vertical"
+                android:padding="18dp"
+                android:focusable="false">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="订阅信息"
+                    android:textColor="#6B6F93"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvPlan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvExpiry"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#6B6F93"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvTraffic"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#6B6F93"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 第三行：实时速度（不可聚焦） -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:baselineAligned="false"
+                android:focusable="false">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_panel_card"
+                    android:orientation="vertical"
+                    android:padding="18dp"
+                    android:focusable="false">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="↑ 上传"
+                        android:textColor="#6B6F93"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvUpSpeed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="0 B/s"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_panel_card"
+                    android:orientation="vertical"
+                    android:padding="18dp"
+                    android:focusable="false">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="↓ 下载"
+                        android:textColor="#6B6F93"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvDownSpeed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="0 B/s"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
