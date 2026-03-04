@@ -11,6 +11,8 @@
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.9-purple.svg)](https://kotlinlang.org)
 [![Xray](https://img.shields.io/badge/Xray--core-Latest-orange.svg)](https://github.com/XTLS/Xray-core)
 
+**🌐 官方网站 / Official Website:** [v2borad.haima.lol](http://v2borad.haima.lol)
+
 [English](#english) | [中文](#chinese)
 
 </div>
